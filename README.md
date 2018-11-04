@@ -6,5 +6,5 @@
 
 并直接读取entity所带component的所有信息
 
-
+尚未完全完成
 
