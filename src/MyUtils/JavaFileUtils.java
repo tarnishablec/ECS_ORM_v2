@@ -16,7 +16,7 @@ public class JavaFileUtils {
 
     }
 
-    private static JavaFieldGetSet createFieldGetSetSRC(DBColumn column, DBTypeConvertor convertor) {
+    private static JavaFieldGetSet createField(DBColumn column, DBTypeConvertor convertor) {
         JavaFieldGetSet jfgs = new JavaFieldGetSet();
 
         String javaFieldType = convertor.databaseType2JavaType(column.getDataType());
@@ -32,7 +32,7 @@ public class JavaFileUtils {
         List<JavaFieldGetSet> javaFields = new ArrayList<>();
 
         for (DBColumn c:columns.values()){
-            javaFields.add(createFieldGetSetSRC(c,convertor));
+            javaFields.add(createField(c,convertor));
         }
         StringBuilder src = new StringBuilder();
 
