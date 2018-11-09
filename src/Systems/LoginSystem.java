@@ -1,8 +1,7 @@
 package Systems;
 
-import ECScore.Entity;
-import ECScore.EntityManager;
-import ECScore.Filter;
+import Components.*;
+import ECScore.*;
 
 import java.util.ArrayList;
 
