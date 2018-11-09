@@ -61,7 +61,7 @@ public class JavaFileUtils {
 
         File f = new File(srcPath+packagePath);
 
-//        System.out.println(f.getAbsolutePath());
+        System.out.println(f.getAbsolutePath());
 
         if (!f.exists()){
             f.mkdirs();
