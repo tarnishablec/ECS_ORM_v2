@@ -20,8 +20,6 @@ public class DBMapper {
             assert conn != null;
             DatabaseMetaData dmd = conn.getMetaData();
             ResultSet tableSet = dmd.getTables(DBManager.getConfiguration().getDatabaseName(), "%", "%", new String[]{"TABLE"});
-            System.out.println(DBManager.getConfiguration().getDatabaseName());
-            System.out.println(DBManager.getConfiguration().getComponentPath());
             while (tableSet.next()) {
                 String tableName = (String) tableSet.getObject("TABLE_NAME");
                 DBTable ti = new DBTable(tableName, new HashMap<>(),new DBColumn());

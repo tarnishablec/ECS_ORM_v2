@@ -41,7 +41,7 @@ public class JavaFileUtils {
         src.append("import ECScore.*;\n");
 //        src.append("import java.util.*;\n");
 
-        src.append("public class ").append(StringUtils.firstChar2UpCase(table.getTableName())).append(" extends IComponentData{\n\n");
+        src.append("public class ").append(StringUtils.firstChar2UpCase(table.getTableName())).append(" implements IComponentData{\n\n");
 
         for (JavaFieldGetSet f:javaFields){
             src.append(f.getFieldInfo());
@@ -60,8 +60,6 @@ public class JavaFileUtils {
         String packagePath = DBManager.getConfiguration().getComponentPath();
 
         File f = new File(srcPath+packagePath);
-
-        System.out.println(f.getAbsolutePath());
 
         if (!f.exists()){
             f.mkdirs();
