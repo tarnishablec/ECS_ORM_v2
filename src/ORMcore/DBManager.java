@@ -24,6 +24,7 @@ public class DBManager {
                 prop.getProperty("url"),
                 prop.getProperty("user"),
                 prop.getProperty("pwd"),
+                prop.getProperty("databaseName"),
                 prop.getProperty("usingDB"),
                 prop.getProperty("srcPath"),
                 prop.getProperty("componentPath")

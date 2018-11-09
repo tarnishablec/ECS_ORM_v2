@@ -19,17 +19,13 @@ public class DBMapper {
             Connection conn = DBManager.createConn();
             assert conn != null;
             DatabaseMetaData dmd = conn.getMetaData();
-
             ResultSet tableSet = dmd.getTables(null, "%", "%", new String[]{"TABLE"});
-
+            System.out.println(DBManager.getConfiguration().getDatabaseName());
+            System.out.println(DBManager.getConfiguration().getComponentPath());
             while (tableSet.next()) {
                 String tableName = (String) tableSet.getObject("TABLE_NAME");
-                System.out.println(tableName);
                 DBTable ti = new DBTable(tableName, new HashMap<>(),new DBColumn());
-                if (ti.getTableName().equals("account")||ti.getTableName().equals("appoint")||ti.getTableName().equals("doctag")){      //有问题！！！！！
-                    tables.put(tableName, ti);                                                                                          //有问题！！！！！
-                }                                                                                                                       //有问题！！！！！
-
+                tables.put(tableName, ti);
                 ResultSet columns = dmd.getColumns(null, "%", tableName, "%");
                 while (columns.next()) {
                     DBColumn ci = new DBColumn(columns.getString("COLUMN_NAME"), columns.getString("TYPE_NAME"));
@@ -39,11 +35,6 @@ public class DBMapper {
         }catch (SQLException e){
             e.printStackTrace();
         }
-
-    }
-
-    public static void main(String[] args) {
-        DBMapper dm=new DBMapper();
     }
 }
 
