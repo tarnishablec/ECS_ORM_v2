@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DBMapper {
-    static Map<String,DBTable> tables = new HashMap<>();
+    private static Map<String,DBTable> tables = new HashMap<>();
 
     public static Map<String, DBTable> getTables() {
         return tables;
@@ -24,8 +24,9 @@ public class DBMapper {
 
             while (tableSet.next()) {
                 String tableName = (String) tableSet.getObject("TABLE_NAME");
+                System.out.println(tableName);
                 DBTable ti = new DBTable(tableName, new HashMap<>(),new DBColumn());
-                if (ti.getTableName().equals("account")||ti.getTableName().equals("appoint")||ti.getTableName().equals("doctag")){                                      //有问题！！！！！
+                if (ti.getTableName().equals("account")||ti.getTableName().equals("appoint")||ti.getTableName().equals("doctag")){      //有问题！！！！！
                     tables.put(tableName, ti);                                                                                          //有问题！！！！！
                 }                                                                                                                       //有问题！！！！！
 
@@ -40,4 +41,9 @@ public class DBMapper {
         }
 
     }
+
+    public static void main(String[] args) {
+        DBMapper dm=new DBMapper();
+    }
 }
+
