@@ -2,7 +2,7 @@ package MyUtils;
 
 
 public class SqlGenerator {
-    public static String generateSelectSql(Class...classes){
+    public static String generateFilterSql(Class...classes){
         StringBuilder sb = new StringBuilder();
         sb.append("select * from "+classes[0].getSimpleName());
         for (int i = 1; i < classes.length; i++) {

@@ -1,11 +1,8 @@
 package Test;
 
 import Components.*;
-import ECScore.Entity;
-import ECScore.EntityManager;
-import ECScore.Filter;
-
-import java.util.ArrayList;
+import ECScore.*;
+import Systems.*;
 
 public class Test1 {
     public static void main(String[] args) {

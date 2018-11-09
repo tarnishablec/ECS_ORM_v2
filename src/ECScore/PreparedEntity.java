@@ -1,5 +1,5 @@
 package ECScore;
 
-public class PreparedEntity extends Entity{
+public class PreparedEntity{
 
 }

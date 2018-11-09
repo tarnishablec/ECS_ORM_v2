@@ -70,7 +70,7 @@ public class EntityManager {
     public static ArrayList<Entity> loadEntities(Filter filter){
         ArrayList<Entity> entities = new ArrayList<>();
         ResultSet rs = null;
-        String sql= SqlGenerator.generateSelectSql(filter.getComponentDataClasses());
+        String sql= SqlGenerator.generateFilterSql(filter.getComponentDataClasses());
         Connection connection = DBManager.createConn();
         try {
             rs= connection.prepareStatement(sql).executeQuery();
@@ -86,6 +86,7 @@ public class EntityManager {
                         iComponents[i]=iComponent;
                     }
                     Entity entity= EntityManager.generateEntity(iComponents);
+                    entity.superid=(Integer) rs.getObject("superid");
                     entities.add(entity);
                 }
             }
@@ -98,4 +99,24 @@ public class EntityManager {
         }
         return entities;
     }
+
+    public static Integer getSuperId(Entity entity){
+        if (entity.getComponentDataHashMap().size()!=0){
+           return entity.superid;
+        }
+        else {
+            return null;
+        }
+    }
+
+
+
+
+    public static void updateEntity(Entity entity){
+        if (entity.superid==null){
+
+        }
+
+    }
+
 }

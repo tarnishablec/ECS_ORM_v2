@@ -2,17 +2,15 @@ package ECScore;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-public class Entity {
-    int entityId;
+public class Entity extends PreparedEntity{
+    public Integer superid;
     ConcurrentHashMap<Class,IComponentData> componentDataHashMap;
 
-    public ConcurrentHashMap<Class, IComponentData> getComponentDataHashMap() {
+    ConcurrentHashMap<Class, IComponentData> getComponentDataHashMap() {
         return componentDataHashMap;
     }
 
     {
         componentDataHashMap=new ConcurrentHashMap<>(10);
     }
-
-    Entity(){}
 }
